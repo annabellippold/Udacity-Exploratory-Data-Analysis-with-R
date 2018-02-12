@@ -1,0 +1,16 @@
+reddit <- read.csv('H:/Udacity/Nanodegree Data Analyst/Exploratory Data Analysis - R/Skript - R Basic/reddit.csv')
+
+str(reddit)
+
+# Setting Levels of Ordered Factors Solution
+reddit$age.range <- ordered(reddit$age.range, levels = c('Under 18', '18-24',
+      '25-34', '35-44', '45-54', '55-64', '65 of Above'))
+
+# Alternative Solution
+reddit$age.range <- factor(reddit$age.range, levels = c('Under 18', '18-24',
+        '25-34', '35-44', '45-54', '55-64', '65 of Above'), ordered = T)
+
+library(ggplot2)
+plot1 <- ggplot(data = reddit, x = age.range)
+print(plot1)
+
